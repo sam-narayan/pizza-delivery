@@ -14,7 +14,7 @@ buttons.grid(row=1, column=0)
 top_text = Label(top, text='pick up or delivery?')
 top_text.pack()
 
-delivery_button = Button(buttons, text='delivery')
+delivery_button = Button(buttons, text='delivery', command = )
 delivery_button.grid(row=0, column=0, padx=10, pady=50)
 
 pickup_button = Button(buttons, text='pick up')
