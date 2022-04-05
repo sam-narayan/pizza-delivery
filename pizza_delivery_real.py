@@ -52,4 +52,5 @@ name_box= Entry(detail_frame, textvariable= name)
 
 confirmbutton= Button(detail_frame, text='confirm', command=confirm)
 
+address_box= Entry(address_frame,)
 window.mainloop()
