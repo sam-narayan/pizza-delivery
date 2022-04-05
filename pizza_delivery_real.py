@@ -41,6 +41,7 @@ add_widget(pickup_button, 0, 1, 10, 50)
 name = DoubleVar()
 name.set('')
 
+
 name_box= Entry(detail_frame, textvariable= name)
 
 window.mainloop()
