@@ -20,6 +20,7 @@ def dcmd():
     add_widget(detail_frame, 1)
     label_text.set('Name?')
     add_widget(name_box)
+    add_widget(confirmbutton,1)
 
 
 def add_widget(widget, rw = 0, clmn = 0, x = 10, y = 3):
