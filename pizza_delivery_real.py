@@ -9,6 +9,7 @@ window.title("Pizza order form")
 top = Frame(window)
 buttons = Frame(window)
 detail_frame = Frame(window)
+address_frame = Frame(window)
 top.grid(row=0, column=0)
 buttons.grid(row=1, column=0)
 
@@ -33,7 +34,7 @@ def confirm():
     forget(detail_frame)
     add_widget(address_frame, 0)
     label_text.set('Address?')
-    add_widget(address_box)
+    add_widget(address_frame)
 
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
