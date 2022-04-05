@@ -19,6 +19,7 @@ def dcmd():
     forget(buttons)
     add_widget(detail_frame, 1, 0)
     print('well done')
+    label_text.set('Name?')
 
 def add_widget(widget, rw, clmn, x = 10, y = 3):
     widget.grid(row = rw, column = clmn, padx = x, pady = y)
