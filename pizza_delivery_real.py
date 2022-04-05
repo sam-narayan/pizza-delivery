@@ -17,11 +17,13 @@ label_text.set('pickup or delivery?!')
 
 def dcmd():
     forget(buttons)
-    add_widget(detail_frame, 1, 0)
+    add_widget(detail_frame, 1)
     print('well done')
     label_text.set('Name?')
+    add_widget(name_box)
 
-def add_widget(widget, rw, clmn, x = 10, y = 3):
+
+def add_widget(widget, rw = 0, clmn = 0, x = 10, y = 3):
     widget.grid(row = rw, column = clmn, padx = x, pady = y)
 
 def forget(widget):
@@ -35,5 +37,10 @@ delivery_button.grid(row=0, column=0, padx=10, pady=50)
 
 pickup_button = Button(buttons, text='pick up')
 add_widget(pickup_button, 0, 1, 10, 50)
+
+name = DoubleVar()
+name.set('')
+
+name_box= Entry(detail_frame, textvariable= name)
 
 window.mainloop()
