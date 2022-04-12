@@ -14,9 +14,9 @@ address_frame = Frame(window)
 phone_frame = Frame(window)
 top.grid(row=0, column=0)
 buttons.grid(row=1, column=0)
-
 label_text = StringVar()
 label_text.set('pickup or delivery?!')
+name2_frame = Frame(window)
 
 def dcmd():
     forget(buttons)
@@ -49,13 +49,23 @@ def acmd():
 def pcmd():
     forget(phone_frame)
 
+def pickcmd():
+    forget(buttons)
+    add_widget(name2_frame, 1)
+    label_text.set('name?')
+    add_widget(name2box)
+    add_widget(name2confirm,1)
+
+def name2cmd():
+    forget(name2_frame)
+
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
 
 delivery_button = Button(buttons, text='delivery', command=dcmd)
 delivery_button.grid(row=0, column=0, padx=10, pady=50)
 
-pickup_button = Button(buttons, text='pick up')
+pickup_button = Button(buttons, text='pick up', command=pickcmd)
 add_widget(pickup_button, 0, 1, 10, 50)
 
 name = DoubleVar()
@@ -64,6 +74,13 @@ name.set('')
 name_box= Entry(detail_frame, textvariable= name)
 
 confirmbutton= Button(detail_frame, text='confirm', command=confirm)
+
+name2 = DoubleVar()
+name2.set('')
+
+name2box= Entry (name2_frame, textvariable= name2)
+
+name2confirm= Button(name2_frame, text='confirm', command=name2cmd)
 
 address = DoubleVar()
 address.set('')
