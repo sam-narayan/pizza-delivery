@@ -42,6 +42,8 @@ def acmd():
     add_widget(phone_frame, 0)
     label_text.set('phone number?')
     add_widget(number_box)
+
+
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
 
