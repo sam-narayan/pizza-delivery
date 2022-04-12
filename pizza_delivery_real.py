@@ -34,8 +34,14 @@ def confirm():
     forget(detail_frame)
     add_widget(address_frame, 0)
     label_text.set('Address?')
-    add_widget(address_frame)
+    add_widget(address_box)
+    add_widget(address_confirm, 0)
 
+def acmd():
+    forget(address_frame)
+    add_widget(phone_frame, 0)
+    label_text.set('phone number?')
+    add_widget(number_box)
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
 
@@ -52,5 +58,11 @@ name_box= Entry(detail_frame, textvariable= name)
 
 confirmbutton= Button(detail_frame, text='confirm', command=confirm)
 
-address_box= Entry(address_frame,)
+address = DoubleVar()
+address.set('')
+
+address_box= Entry(address_frame, textvariable= address )
+
+address_confirm= Button(address_frame, text='confirm', command=acmd)
+
 window.mainloop()
