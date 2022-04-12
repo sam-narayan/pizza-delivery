@@ -44,6 +44,7 @@ def acmd():
     add_widget(phone_frame, 1)
     label_text.set('phone number?')
     add_widget(number_box)
+    add_widget(number_confirm, 1)
 
 def pcmd():
     forget(phone_frame)
