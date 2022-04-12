@@ -5,6 +5,7 @@ from tkinter import ttk
 
 #creating window for form
 window = Tk()
+window.resizable(False,False)
 window.title("Pizza order form")
 top = Frame(window)
 buttons = Frame(window)
