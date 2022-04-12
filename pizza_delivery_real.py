@@ -32,14 +32,14 @@ def forget(widget):
 
 def confirm():
     forget(detail_frame)
-    add_widget(address_frame, 0)
+    add_widget(address_frame, 1)
     label_text.set('Address?')
     add_widget(address_box)
-    add_widget(address_confirm, 0)
+    add_widget(address_confirm, 1 )
 
 def acmd():
     forget(address_frame)
-    add_widget(phone_frame, 0)
+    add_widget(phone_frame, 1)
     label_text.set('phone number?')
     add_widget(number_box)
 
