@@ -45,6 +45,8 @@ def acmd():
     label_text.set('phone number?')
     add_widget(number_box)
 
+def pcmd():
+    forget(phone_frame)
 
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
@@ -69,6 +71,11 @@ address_box= Entry(address_frame, textvariable= address )
 
 address_confirm= Button(address_frame, text='confirm', command=acmd)
 
-number_box= Entry(phone_frame)
+number= DoubleVar()
+number.set('')
+
+number_box= Entry(phone_frame, textvariable= number)
+
+number_confirm= Button(phone_frame, text='confirm', command=pcmd)
 
 window.mainloop()
