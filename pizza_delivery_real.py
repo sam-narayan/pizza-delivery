@@ -10,6 +10,7 @@ top = Frame(window)
 buttons = Frame(window)
 detail_frame = Frame(window)
 address_frame = Frame(window)
+phone_frame = Frame(window)
 top.grid(row=0, column=0)
 buttons.grid(row=1, column=0)
 
@@ -66,5 +67,7 @@ address.set('')
 address_box= Entry(address_frame, textvariable= address )
 
 address_confirm= Button(address_frame, text='confirm', command=acmd)
+
+number_box= Entry(phone_frame)
 
 window.mainloop()
