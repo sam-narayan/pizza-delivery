@@ -29,6 +29,7 @@ def dcmd():
     label_text.set('Name?')
     add_widget(name_box)
     add_widget(confirmbutton,1)
+    add_widget(cancel1,2)
 
 
 def add_widget(widget, rw = 0, clmn = 0, x = 10, y = 3):
@@ -43,6 +44,7 @@ def confirm():
     label_text.set('Address?')
     add_widget(address_box)
     add_widget(address_confirm, 1 )
+    add_widget(cancel3, 2)
 
 def acmd():
     forget(address_frame)
@@ -50,6 +52,7 @@ def acmd():
     label_text.set('phone number?')
     add_widget(number_box)
     add_widget(number_confirm, 1)
+    add_widget(cancel4,2)
 
 def pcmd():
     forget(phone_frame)
@@ -60,6 +63,7 @@ def pickcmd():
     label_text.set('name?')
     add_widget(name2box)
     add_widget(name2confirm,1)
+    add_widget(cancel2,2)
 
 def name2cmd():
     forget(name2_frame)
@@ -82,12 +86,18 @@ name_box= Entry(detail_frame, textvariable= name)
 
 confirmbutton= Button(detail_frame, text='confirm', command=confirm)
 
+cancel1= Button(detail_frame, text='cancel', command=master.quit)
+
+
 name2 = StringVar()
 name2.set('')
 
 name2box= Entry (name2_frame, textvariable= name2)
 
 name2confirm= Button(name2_frame, text='confirm', command=name2cmd)
+
+cancel2= Button(name2_frame, text='cancel', command=master.quit)
+
 
 address = StringVar()
 address.set('')
@@ -96,12 +106,17 @@ address_box= Entry(address_frame, textvariable= address )
 
 address_confirm= Button(address_frame, text='confirm', command=acmd)
 
+cance3 = Button(address_frame, text='cancel', command=master.quit)
+
 number= StringVar()
 number.set('')
 
 number_box= Entry(phone_frame, textvariable= number)
 
 number_confirm= Button(phone_frame, text='confirm', command=pcmd)
+
+cancel4 = Button(phone_frame, text='cancel', command=master.quit)
+
 
 current_order= StringVar()
 current_order.set('')
