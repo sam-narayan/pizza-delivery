@@ -106,7 +106,7 @@ address_box= Entry(address_frame, textvariable= address )
 
 address_confirm= Button(address_frame, text='confirm', command=acmd)
 
-cance3 = Button(address_frame, text='cancel', command=master.quit)
+cancel3 = Button(address_frame, text='cancel', command=master.quit)
 
 number= StringVar()
 number.set('')
