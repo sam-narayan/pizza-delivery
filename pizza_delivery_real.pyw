@@ -19,10 +19,20 @@ label_text.set('pickup or delivery?!')
 name2_frame = Frame(window)
 master = Frame(window)
 
+total = []
 def show():
-    global current_order
-    current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \nname: {}".format(var1.get(), var2.get(), var3.get(), name2.get()))
-
+    global current_order, total
+    if var1 == 1:
+        #total_cost += 1
+        total.append(10)
+    if var2 == 1:
+        #total_cost -= 0.5
+        total.append(-10)
+    if var3 == 1:
+        #total_cost.set(500)
+        total.append(10)
+    current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \nname: {} \ncost: {}".format(var1.get(), var2.get(), var3.get(), name2.get(),total))
+    
 def dcmd():
     forget(buttons)
     add_widget(detail_frame, 1)
@@ -130,5 +140,7 @@ Checkbutton(master, text="cheese", variable=var3).grid(row=3, sticky=W)
 Button(master, text='Show', command=show, cursor="hand2").grid(row=4, sticky=W, pady=4)
 Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=5, sticky=W, pady=4)
 Label(master, textvariable=current_order, cursor="hand2").grid(row=6, sticky=W, pady=4)
+#total_cost = IntVar()
+#total_cost.set(2)
 
 window.mainloop()
