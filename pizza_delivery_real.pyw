@@ -32,7 +32,7 @@ def show():
         #total_cost.set(500)
         total.append(10)
     current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \nname: {} \ncost: {}".format(var1.get(), var2.get(), var3.get(), name2.get(),total))
-    
+
 def dcmd():
     forget(buttons)
     add_widget(detail_frame, 1)
