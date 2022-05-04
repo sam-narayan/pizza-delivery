@@ -18,20 +18,18 @@ label_text = StringVar()
 label_text.set('pickup or delivery?!')
 name2_frame = Frame(window)
 master = Frame(window)
+total = IntVar(window, 5)
+orderframe = Frame(window)
 
-total = []
 def show():
     global current_order, total
-    if var1 == 1:
-        #total_cost += 1
-        total.append(10)
-    if var2 == 1:
-        #total_cost -= 0.5
-        total.append(-10)
-    if var3 == 1:
-        #total_cost.set(500)
-        total.append(10)
-    current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \nname: {} \ncost: {}".format(var1.get(), var2.get(), var3.get(), name2.get(),total))
+    if var1.get() == 1:
+        total.set(total.get() + 100)
+    if var2.get() == 1:
+        total.set(total.get() -1000000)
+    if var3.get() == 1:
+        total.set(total.get() +9000000)
+    current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \nname: {} \ncost: {}".format(var1.get(), var2.get(), var3.get(), name2.get(), total.get()))
 
 def dcmd():
     forget(buttons)
@@ -40,7 +38,7 @@ def dcmd():
     add_widget(name_box)
     add_widget(confirmbutton,1)
     add_widget(cancel1,2)
-
+    delvorpick.set('Delivery')
 
 def add_widget(widget, rw = 0, clmn = 0, x = 10, y = 3):
     widget.grid(row = rw, column = clmn, padx = x, pady = y)
@@ -74,11 +72,21 @@ def pickcmd():
     add_widget(name2box)
     add_widget(name2confirm,1)
     add_widget(cancel2,2)
+    delvorpick.set('Pick up')
 
 def name2cmd():
     forget(name2_frame)
     add_widget(master, 1)
     label_text.set('order?')
+
+add_widget(orderframe, clmn=1, y=10)
+
+delvorpick = StringVar()
+Label(orderframe, textvariable=delvorpick, cursor="hand2").grid(row=0, pady=10, padx=10)
+
+current_order= StringVar()
+current_order.set('')
+Label(orderframe, textvariable=current_order, cursor="hand2").grid(row=1, pady=10, padx=10)
 
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
@@ -127,20 +135,14 @@ number_confirm= Button(phone_frame, text='confirm', command=pcmd, cursor="hand2"
 
 cancel4 = Button(phone_frame, text='cancel', command=master.quit, cursor="hand2")
 
-
-current_order= StringVar()
-current_order.set('')
 Label(master, text="toppings:").grid(row=0, sticky=W)
 var1 = IntVar()
-Checkbutton(master, text="ham", variable=var1).grid(row=1, sticky=W)
+Checkbutton(master, text="ham", variable=var1, onvalue=1, offvalue=0).grid(row=1, sticky=W)
 var2 = IntVar()
-Checkbutton(master, text="female", variable=var2).grid(row=2, sticky=W)
+Checkbutton(master, text="female", variable=var2, onvalue=1, offvalue=0).grid(row=2, sticky=W)
 var3 = IntVar()
-Checkbutton(master, text="cheese", variable=var3).grid(row=3, sticky=W)
+Checkbutton(master, text="cheese", variable=var3, onvalue=1, offvalue=0).grid(row=3, sticky=W)
 Button(master, text='Show', command=show, cursor="hand2").grid(row=4, sticky=W, pady=4)
 Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=5, sticky=W, pady=4)
-Label(master, textvariable=current_order, cursor="hand2").grid(row=6, sticky=W, pady=4)
-#total_cost = IntVar()
-#total_cost.set(2)
 
 window.mainloop()
