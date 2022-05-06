@@ -29,7 +29,9 @@ def show():
         total.set(total.get() -1000000)
     if var3.get() == 1:
         total.set(total.get() +9000000)
-    current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \nname: {} \ncost: {}".format(var1.get(), var2.get(), var3.get(), name2.get(), total.get()))
+    if var4.get() == 1:
+        total.set(total.get() +2.50)
+    current_order.set("order: \nham: {} \nfemale: {} \ncheese: {} \ngourmet women: {} \ncost: ${}".format(var1.get(), var2.get(), var3.get(), var4.get(), total.get()))
 
 def dcmd():
     forget(buttons)
@@ -78,15 +80,19 @@ def name2cmd():
     forget(name2_frame)
     add_widget(master, 1)
     label_text.set('order?')
+    name_boxorder.set('name: {}'.format(name2.get()))
 
 add_widget(orderframe, clmn=1, y=10)
 
 delvorpick = StringVar()
-Label(orderframe, textvariable=delvorpick, cursor="hand2").grid(row=0, pady=10, padx=10)
+Label(orderframe, textvariable=delvorpick,).grid(row=0, pady=10, padx=10)
+
+name_boxorder = StringVar()
+Label(orderframe, textvariable=name_boxorder).grid(row=1, pady=10, padx=10)
 
 current_order= StringVar()
 current_order.set('')
-Label(orderframe, textvariable=current_order, cursor="hand2").grid(row=1, pady=10, padx=10)
+Label(orderframe, textvariable=current_order,).grid(row=2, pady=10, padx=10)
 
 top_text = Label(top, textvariable = label_text)
 top_text.pack()
@@ -109,7 +115,6 @@ cancel1= Button(detail_frame, text='cancel', command=master.quit, cursor="hand2"
 
 name2 = StringVar()
 name2.set('')
-
 name2box= Entry (name2_frame, textvariable= name2)
 
 name2confirm= Button(name2_frame, text='confirm', command=name2cmd, cursor="hand2")
@@ -142,7 +147,9 @@ var2 = IntVar()
 Checkbutton(master, text="female", variable=var2, onvalue=1, offvalue=0).grid(row=2, sticky=W)
 var3 = IntVar()
 Checkbutton(master, text="cheese", variable=var3, onvalue=1, offvalue=0).grid(row=3, sticky=W)
-Button(master, text='Show', command=show, cursor="hand2").grid(row=4, sticky=W, pady=4)
-Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=5, sticky=W, pady=4)
+var4 = IntVar()
+Checkbutton(master, text="gourmet women", variable=var4, onvalue=1, offvalue=0).grid(row=4, sticky=W)
+Button(master, text='Show', command=show, cursor="hand2").grid(row=5, sticky=W, pady=4)
+Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=6, sticky=W, pady=4)
 
 window.mainloop()
