@@ -7,19 +7,20 @@ from tkinter import ttk
 window = Tk()
 window.resizable(False,False)
 window.title("Pizza order form")
-top = Frame(window)
-buttons = Frame(window)
+window.config(bg = 'blue')
+top = Frame(window, bg='green')
+buttons = Frame(top, bg = 'yellow')
 detail_frame = Frame(window)
 address_frame = Frame(window)
 phone_frame = Frame(window)
-top.grid(row=0, column=0)
-buttons.grid(row=1, column=0)
+top.grid(sticky = 'nw')
+buttons.grid(row = 1, column = 0, sticky = 'n', pady = 40)
 label_text = StringVar()
 label_text.set('pickup or delivery?!')
 name2_frame = Frame(window)
 master = Frame(window)
 total = IntVar(window, 5)
-orderframe = Frame(window)
+orderframe = Frame(window, bg = 'black')
 
 def show():
     global current_order, total
@@ -80,7 +81,6 @@ def name2cmd():
     forget(name2_frame)
     add_widget(master, 1)
     label_text.set('order?')
-    name_boxorder.set('name: {}'.format(name2.get()))
 
 add_widget(orderframe, clmn=1, y=10)
 
@@ -94,31 +94,26 @@ current_order= StringVar()
 current_order.set('')
 Label(orderframe, textvariable=current_order,).grid(row=2, pady=10, padx=10)
 
-top_text = Label(top, textvariable = label_text)
-top_text.pack()
+top_text = Label(top, textvariable = label_text, pady = 0, bg = 'red')
+top_text.grid(pady = 0, row = 0, column =0, sticky = 'n')
 
 delivery_button = Button(buttons, text='delivery', command=dcmd, cursor="hand2")
-delivery_button.grid(row=0, column=0, padx=10, pady=50)
+delivery_button.grid(row=0, column=0, padx=10, pady=0, sticky = 'n')
 
 pickup_button = Button(buttons, text='pick up', command=pickcmd, cursor="hand2")
-add_widget(pickup_button, 0, 1, 10, 50)
+add_widget(pickup_button, 0, 1, 10, 0)
 
 name = StringVar()
 name.set('')
-
-name_box= Entry(detail_frame, textvariable= name)
-
-confirmbutton= Button(detail_frame, text='confirm', command=confirm, cursor="hand2")
-
-cancel1= Button(detail_frame, text='cancel', command=master.quit, cursor="hand2")
+name_box = Entry(detail_frame, textvariable= name)
+confirmbutton = Button(detail_frame, text='confirm', command=confirm, cursor="hand2")
+cancel1 = Button(detail_frame, text='cancel', command=master.quit, cursor="hand2")
 
 
 name2 = StringVar()
 name2.set('')
 name2box= Entry (name2_frame, textvariable= name2)
-
 name2confirm= Button(name2_frame, text='confirm', command=name2cmd, cursor="hand2")
-
 cancel2= Button(name2_frame, text='cancel', command=master.quit, cursor="hand2")
 
 
