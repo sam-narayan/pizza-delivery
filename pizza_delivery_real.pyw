@@ -21,6 +21,7 @@ name2_frame = Frame(window)
 master = Frame(window)
 total = IntVar(window, 5)
 orderframe = Frame(window, bg = 'black')
+pizza = 0
 
 def show():
     global current_order, total
@@ -83,6 +84,16 @@ def name2cmd():
     label_text.set('order?')
     name_boxorder.set('name: {}'.format(name2.get()))
 
+def add_pizza():
+    pizza + 1
+    while pizza < 5:
+        forget(master)
+        add_widget (master)
+        break
+
+
+
+
 add_widget(orderframe, clmn=1, y=10)
 
 delvorpick = StringVar()
@@ -99,7 +110,7 @@ top_text = Label(top, textvariable = label_text, pady = 0, bg = 'red')
 top_text.grid(pady = 0, row = 0, column =0, sticky = 'n')
 
 delivery_button = Button(buttons, text='delivery', command=dcmd, cursor="hand2")
-delivery_button.grid(row=0, column=0, padx=10, pady=0, sticky = 'n')
+delivery_button.grid(row=0, column=0, padx=10, pady=0)
 
 pickup_button = Button(buttons, text='pick up', command=pickcmd, cursor="hand2")
 add_widget(pickup_button, 0, 1, 10, 0)
@@ -150,7 +161,8 @@ var3 = IntVar()
 Checkbutton(master, text="cheese", variable=var3, onvalue=1, offvalue=0).grid(row=3, sticky=W)
 var4 = IntVar()
 Checkbutton(master, text="gourmet women", variable=var4, onvalue=1, offvalue=0).grid(row=4, sticky=W)
-Button(master, text='Show', command=show, cursor="hand2").grid(row=5, sticky=W, pady=4)
-Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=6, sticky=W, pady=4)
+Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=5, sticky=W,pady=4)
+Button(master, text='confirm', command=show, cursor="hand2").grid(row=6, sticky=W, pady=4)
+Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=7, sticky=W, pady=4)
 
 window.mainloop()
