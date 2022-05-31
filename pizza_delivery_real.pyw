@@ -10,16 +10,16 @@ window.title("Pizza order form")
 window.config(bg = 'blue')
 top = Frame(window, bg='green')
 buttons = Frame(top, bg = 'yellow')
-detail_frame = Frame(window)
-address_frame = Frame(window)
-phone_frame = Frame(window)
+detail_frame = Frame(top)
+address_frame = Frame(top)
+phone_frame = Frame(top)
 top.grid(row=1)
 buttons.grid(row = 1, column= 0, pady = 40)
 label_text = StringVar()
 label_text.set('pickup or delivery?!')
-name2_frame = Frame(window)
-master = Frame(window)
-total = IntVar(window, 5)
+name2_frame = Frame(top)
+master = Frame(top)
+total = IntVar(top, 5)
 orderframe = Frame(window, bg = 'black')
 pizza = 0
 
@@ -44,8 +44,8 @@ def dcmd():
     add_widget(cancel1,2)
     delvorpick.set('Delivery')
 
-def add_widget(widget, rw = 4, clmn = 0, x = 10, y = 3, clms = 1):
-    widget.grid(row = rw, column = clmn, padx = x, pady = y, columnspan =clms)
+def add_widget(widget, rw = 4, clmn = 0, x = 10, y = 3, clms = 1, rwspn =1):
+    widget.grid(row = rw, column = clmn, padx = x, pady = y, columnspan =clms, rowspan= rwspn)
 
 def forget(widget):
     widget.grid_forget()
@@ -94,7 +94,7 @@ def add_pizza():
 
 
 
-add_widget(orderframe, clmn=1, y=10)
+add_widget(orderframe, clmn=1, y=10, rw=1, rwspn =3)
 
 delvorpick = StringVar()
 Label(orderframe, textvariable=delvorpick,).grid(row=0, pady=10, padx=10)
