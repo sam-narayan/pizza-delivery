@@ -23,30 +23,35 @@ total = IntVar(top, 5)
 orderframe = Frame(window, bg = 'black')
 pizza = 0
 
-def show():
+def show(x):
     global current_order, total
     onpizza = ''
     if var1.get() == 1:
-        total.set(total.get() + 100)
+        total.set(total.get() +0.50)
         ham = '\nham'
         onpizza = f'{onpizza}{ham}'
     if var2.get() == 1:
-        total.set(total.get() -1000000)
-        female = '\nfemale'
-        onpizza = f'{onpizza}{female}'
+        total.set(total.get() +0.50)
+        extracheese = '\nextra cheese'
+        onpizza = f'{onpizza}{extracheese}'
     if var3.get() == 1:
-        total.set(total.get() +9000)
-        cheese = '\ncheese'
-        onpizza = f'{onpizza}{cheese}'
+        total.set(total.get() +0.50)
+        garlic = '\ngarlic sauce'
+        onpizza = f'{onpizza}{garlic}'
     if var4.get() == 1:
-        total.set(total.get() +2.50)
-        gourmetwomen = '\ngourmet women'
-        onpizza = f'{onpizza}{gourmetwomen}'
+        total.set(total.get() +0.50)
+        bbq = '\nbbq sauce'
+        onpizza = f'{onpizza}{bbq}'
     if var5.get() == 1:
-        total.set(total.get() +8.50)
-        meatlover = '\nmeat lovers'
-        onpizza = f'{onpizza}{meatlover}'
-    pizza_order1.set("pizza 1:" + onpizza)
+        total.set(total.get() +0.50)
+        mystery = '\nmystery meat'
+        onpizza = f'{onpizza}{mystery}'
+    if x == 1:
+        pizza_order1.set("pizza 1:" + onpizza)
+    elif x == 2:
+        pizza_order2.set("pizza 2:" + onpizza)
+    elif x == 3:
+        pizza_order3.set("pizza 3:" + onpizza)
 
 def dcmd():
     forget(buttons)
@@ -101,14 +106,32 @@ def add_pizza():
     global pizza
     pizza += 1
     if pizza == 1:
-        show()
+        show(pizza)
         add_widget(pizza1, 3)
+        var1.set(0)
+        var2.set(0)
+        var3.set(0)
+        var4.set(0)
+        var5.set(0)
     elif pizza == 2:
-        add_widget(pizza2)
-    while pizza < 5:
+        show(pizza)
+        add_widget(pizza2,4)
+        var1.set(0)
+        var2.set(0)
+        var3.set(0)
+        var4.set(0)
+        var5.set(0)
+    elif pizza == 3:
+        show(pizza)
+        add_widget(pizza3,5)
+        var1.set(0)
+        var2.set(0)
+        var3.set(0)
+        var4.set(0)
+        var5.set(0)
+    if pizza < 5:
         forget(master)
         add_widget (master)
-        break
 
 
 
@@ -167,20 +190,33 @@ number_confirm= Button(phone_frame, text='confirm', command=pcmd, cursor="hand2"
 
 cancel4 = Button(phone_frame, text='cancel', command=master.quit, cursor="hand2")
 
-Label(master, text="toppings:").grid(row=0, sticky=W)
+Label(master, text="pizzas:").grid(row=0, sticky=W)
+
+varpizza = IntVar()
+varpizza.set(0)
+radiocheese = Radiobutton(master, text='Cheese Supreme', variable=varpizza, value=1).grid(row=1, sticky=W)
+radioham = Radiobutton(master, text='ham and cheese', variable=varpizza, value=2).grid(row=2, sticky=W)
+radiomeat = Radiobutton(master, text='meat', variable=varpizza, value=3).grid(row=3, sticky=W)
+radionacho = Radiobutton(master, text='nacho chips and cheese', variable=varpizza, value=4).grid(row=4, sticky=W)
+radiosupermeat = Radiobutton(master, text='super meat lovers', variable=varpizza, value=5).grid(row=5, sticky=W)
+radiogarlic = Radiobutton(master, text='garlic and cheese', variable=varpizza, value=6).grid(row=6, sticky=W)
+radiopeperoni = Radiobutton(master, text='peperoni and cheese', variable=varpizza, value=7).grid(row=7, sticky=W)
+radioprawn = Radiobutton(master, text='prawn and chorizo', variable=varpizza, value=8).grid(row=8, sticky=W)
+
+Label(master, text="toppings:").grid(row=9, sticky=W)
 var1 = IntVar()
-Checkbutton(master, text="ham", variable=var1, onvalue=1, offvalue=0).grid(row=1, sticky=W)
+Checkbutton(master, text="ham", variable=var1, onvalue=1, offvalue=0).grid(row=10, sticky=W)
 var2 = IntVar()
-Checkbutton(master, text="female", variable=var2, onvalue=1, offvalue=0).grid(row=2, sticky=W)
+Checkbutton(master, text="extra cheese", variable=var2, onvalue=1, offvalue=0).grid(row=11, sticky=W)
 var3 = IntVar()
-Checkbutton(master, text="cheese", variable=var3, onvalue=1, offvalue=0).grid(row=3, sticky=W)
+Checkbutton(master, text="garlic sauce", variable=var3, onvalue=1, offvalue=0).grid(row=12, sticky=W)
 var4 = IntVar()
-Checkbutton(master, text="gourmet women", variable=var4, onvalue=1, offvalue=0).grid(row=4, sticky=W)
+Checkbutton(master, text="bbq sauce", variable=var4, onvalue=1, offvalue=0).grid(row=13, sticky=W)
 var5 = IntVar()
-Checkbutton(master, text="meat lovers", variable=var5, onvalue=1, offvalue=0).grid(row=5,sticky=W)
-Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=6, sticky=W,pady=4)
-Button(master, text='confirm', command=show, cursor="hand2").grid(row=7, sticky=W, pady=4)
-Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=8, sticky=W, pady=4)
+Checkbutton(master, text="mystery meat", variable=var5, onvalue=1, offvalue=0).grid(row=14,sticky=W)
+Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=15, sticky=W,pady=4)
+Button(master, text='confirm', command=show, cursor="hand2").grid(row=16, sticky=W, pady=4)
+Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=17, sticky=W, pady=4)
 
 pizza_order1= StringVar()
 pizza_order1.set('')
@@ -189,5 +225,9 @@ pizza1 = Label(orderframe, textvariable=pizza_order1)
 pizza_order2= StringVar()
 pizza_order2.set('')
 pizza2 = Label(orderframe, textvariable=pizza_order2)
+
+pizza_order3= StringVar()
+pizza_order3.set('')
+pizza3 = Label(orderframe, textvariable=pizza_order3)
 
 window.mainloop()
