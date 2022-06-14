@@ -79,6 +79,10 @@ def show(x):
         total.set(total.get() +0.50)
         mystery = '\nmystery meat'
         onpizza = f'{onpizza}{mystery}'
+    if var6.get() == 1:
+        total.set(total.get() +5.00)
+        gourmet = '\ngourmet option'
+        onpizza = f'{onpizza}{gourmet}'
     if x == 1:
         pizza_order1.set("pizza 1:" + onpizza)
     elif x == 2:
@@ -148,6 +152,7 @@ def add_pizza():
         var3.set(0)
         var4.set(0)
         var5.set(0)
+        var6.set(0)
     elif pizza == 2:
         show(pizza)
         add_widget(pizza2,4)
@@ -156,6 +161,7 @@ def add_pizza():
         var3.set(0)
         var4.set(0)
         var5.set(0)
+        var6.set(0)
     elif pizza == 3:
         show(pizza)
         add_widget(pizza3,5)
@@ -164,6 +170,7 @@ def add_pizza():
         var3.set(0)
         var4.set(0)
         var5.set(0)
+        var6.set(0)
     elif pizza == 4:
         show(pizza)
         add_widget(pizza4,6)
@@ -172,6 +179,7 @@ def add_pizza():
         var3.set(0)
         var4.set(0)
         var5.set(0)
+        var6.set(0)
     if pizza < 5:
         forget(master)
         add_widget (master)
@@ -258,9 +266,11 @@ var4 = IntVar()
 Checkbutton(master, text="bbq sauce", variable=var4, onvalue=1, offvalue=0).grid(row=13, sticky=W)
 var5 = IntVar()
 Checkbutton(master, text="mystery meat", variable=var5, onvalue=1, offvalue=0).grid(row=14,sticky=W)
-Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=15, sticky=W,pady=4)
-Button(master, text='finish order', command=order_fin, cursor="hand2").grid(row=16, sticky=W, pady=4)
-Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=17, sticky=W, pady=4)
+var6 = IntVar()
+Checkbutton(master, text="make gourmet", variable=var6, onvalue=1, offvalue=0).grid(row=15,sticky=W)
+Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=16, sticky=W,pady=4)
+Button(master, text='finish order', command=order_fin, cursor="hand2").grid(row=17, sticky=W, pady=4)
+Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=18, sticky=W, pady=4)
 
 pizza_order1= StringVar()
 pizza_order1.set('')
