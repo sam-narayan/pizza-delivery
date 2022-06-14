@@ -197,7 +197,9 @@ def add_pizza():
         tk.messagebox.showerror(title="pizza limit", message="pizza limit reached ( limit 5)")
 
 def order_fin():
-    balls
+    totaltext.set("Total:$ {}".format(total.get()))
+    add_widget(totallab, 8)
+
 
 add_widget(orderframe, clmn=1, y=10, rw=1, rwspn =3)
 
@@ -206,6 +208,9 @@ Label(orderframe, textvariable=delvorpick,).grid(row=0, pady=10, padx=10)
 
 name_boxorder = StringVar()
 Label(orderframe, textvariable=name_boxorder).grid(row=1, pady=10, padx=10)
+
+totaltext = StringVar()
+totallab = Label(orderframe, textvariable=totaltext)
 
 top_text = Label(top, textvariable = label_text, pady = 0, bg = 'red')
 top_text.grid(pady = 0, row = 0, column =0, sticky = 'n')
