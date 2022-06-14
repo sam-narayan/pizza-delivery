@@ -27,28 +27,36 @@ def show(x):
     global current_order, total, varpizza
     onpizza = ''
     if varpizza.get() == 1:
-        piiz = 'Cheese Supreme'
+        total.set(total.get() +8.50)
+        piiz = '\nCheese Supreme'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 2:
-        piiz = 'ham and cheese'
+        total.set(total.get() +8.50)
+        piiz = '\nham and cheese'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 3:
-        piiz = 'meat'
+        total.set(total.get() +8.50)
+        piiz = '\nmeat'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 4:
-        piiz = 'nacho chips and cheese'
+        total.set(total.get() +8.50)
+        piiz = '\nnacho chips and cheese'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 5:
-        piiz = 'super meat lovers'
+        total.set(total.get() +8.50)
+        piiz = '\nsuper meat lovers'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 6:
-        piiz = 'garlic and cheese'
+        total.set(total.get() +8.50)
+        piiz = '\ngarlic and cheese'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 7:
-        piiz = 'peperoni and cheese'
+        total.set(total.get() +8.50)
+        piiz = '\npeperoni and cheese'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 8:
-        piiz = 'prawn and chorizo'
+        total.set(total.get() +8.50)
+        piiz = '\nprawn and chorizo'
         onpizza = f'{onpizza}{piiz}'
 
     if var1.get() == 1:
@@ -77,6 +85,8 @@ def show(x):
         pizza_order2.set("pizza 2:" + onpizza)
     elif x == 3:
         pizza_order3.set("pizza 3:" + onpizza)
+    elif x== 4:
+        pizza_order4.set("pizza 4:" + onpizza)
 
 def dcmd():
     forget(buttons)
@@ -154,10 +164,20 @@ def add_pizza():
         var3.set(0)
         var4.set(0)
         var5.set(0)
+    elif pizza == 4:
+        show(pizza)
+        add_widget(pizza4,6)
+        var1.set(0)
+        var2.set(0)
+        var3.set(0)
+        var4.set(0)
+        var5.set(0)
     if pizza < 5:
         forget(master)
         add_widget (master)
 
+def order_fin():
+    balls
 
 add_widget(orderframe, clmn=1, y=10, rw=1, rwspn =3)
 
@@ -216,7 +236,7 @@ cancel4 = Button(phone_frame, text='cancel', command=master.quit, cursor="hand2"
 Label(master, text="pizzas:").grid(row=0, sticky=W)
 
 varpizza = IntVar()
-varpizza.set(0)
+varpizza.set(1)
 radiocheese = Radiobutton(master, text='Cheese Supreme', variable=varpizza, value=1).grid(row=1, sticky=W)
 radioham = Radiobutton(master, text='ham and cheese', variable=varpizza, value=2).grid(row=2, sticky=W)
 radiomeat = Radiobutton(master, text='meat', variable=varpizza, value=3).grid(row=3, sticky=W)
@@ -225,6 +245,7 @@ radiosupermeat = Radiobutton(master, text='super meat lovers', variable=varpizza
 radiogarlic = Radiobutton(master, text='garlic and cheese', variable=varpizza, value=6).grid(row=6, sticky=W)
 radiopeperoni = Radiobutton(master, text='peperoni and cheese', variable=varpizza, value=7).grid(row=7, sticky=W)
 radioprawn = Radiobutton(master, text='prawn and chorizo', variable=varpizza, value=8).grid(row=8, sticky=W)
+
 
 Label(master, text="toppings:").grid(row=9, sticky=W)
 var1 = IntVar()
@@ -238,7 +259,7 @@ Checkbutton(master, text="bbq sauce", variable=var4, onvalue=1, offvalue=0).grid
 var5 = IntVar()
 Checkbutton(master, text="mystery meat", variable=var5, onvalue=1, offvalue=0).grid(row=14,sticky=W)
 Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=15, sticky=W,pady=4)
-Button(master, text='confirm', command=show, cursor="hand2").grid(row=16, sticky=W, pady=4)
+Button(master, text='finish order', command=order_fin, cursor="hand2").grid(row=16, sticky=W, pady=4)
 Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=17, sticky=W, pady=4)
 
 pizza_order1= StringVar()
@@ -252,5 +273,9 @@ pizza2 = Label(orderframe, textvariable=pizza_order2)
 pizza_order3= StringVar()
 pizza_order3.set('')
 pizza3 = Label(orderframe, textvariable=pizza_order3)
+
+pizza_order4= StringVar()
+pizza_order4.set('')
+pizza4 = Label(orderframe, textvariable=pizza_order4)
 
 window.mainloop()
