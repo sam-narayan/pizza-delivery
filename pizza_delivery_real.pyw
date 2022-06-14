@@ -2,6 +2,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+import tkinter.messagebox
 
 #creating window for form
 window = Tk()
@@ -89,8 +90,11 @@ def show(x):
         pizza_order2.set("pizza 2:" + onpizza)
     elif x == 3:
         pizza_order3.set("pizza 3:" + onpizza)
-    elif x== 4:
+    elif x == 4:
         pizza_order4.set("pizza 4:" + onpizza)
+    elif x == 5:
+        pizza_order5.set("pizza 5:" + onpizza)
+
 
 def dcmd():
     forget(buttons)
@@ -180,9 +184,17 @@ def add_pizza():
         var4.set(0)
         var5.set(0)
         var6.set(0)
-    if pizza < 5:
-        forget(master)
-        add_widget (master)
+    elif pizza == 5:
+        show(pizza)
+        add_widget(pizza5,7)
+        var1.set(0)
+        var2.set(0)
+        var3.set(0)
+        var4.set(0)
+        var5.set(0)
+        var6.set(0)
+    if pizza > 5:
+        tk.messagebox.showerror(title="pizza limit", message="pizza limit reached ( limit 5)")
 
 def order_fin():
     balls
@@ -287,5 +299,10 @@ pizza3 = Label(orderframe, textvariable=pizza_order3)
 pizza_order4= StringVar()
 pizza_order4.set('')
 pizza4 = Label(orderframe, textvariable=pizza_order4)
+
+pizza_order5= StringVar()
+pizza_order5.set('')
+pizza5 = Label(orderframe, textvariable=pizza_order5)
+
 
 window.mainloop()
