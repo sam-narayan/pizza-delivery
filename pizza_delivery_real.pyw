@@ -24,8 +24,33 @@ orderframe = Frame(window, bg = 'black')
 pizza = 0
 
 def show(x):
-    global current_order, total
+    global current_order, total, varpizza
     onpizza = ''
+    if varpizza.get() == 1:
+        piiz = 'Cheese Supreme'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 2:
+        piiz = 'ham and cheese'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 3:
+        piiz = 'meat'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 4:
+        piiz = 'nacho chips and cheese'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 5:
+        piiz = 'super meat lovers'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 6:
+        piiz = 'garlic and cheese'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 7:
+        piiz = 'peperoni and cheese'
+        onpizza = f'{onpizza}{piiz}'
+    elif varpizza.get() == 8:
+        piiz = 'prawn and chorizo'
+        onpizza = f'{onpizza}{piiz}'
+
     if var1.get() == 1:
         total.set(total.get() +0.50)
         ham = '\nham'
@@ -132,8 +157,6 @@ def add_pizza():
     if pizza < 5:
         forget(master)
         add_widget (master)
-
-
 
 
 add_widget(orderframe, clmn=1, y=10, rw=1, rwspn =3)
