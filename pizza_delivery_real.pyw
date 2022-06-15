@@ -156,7 +156,7 @@ def add_pizza():
     pizza += 1
     if pizza == 1:
         show(pizza)
-        add_widget(pizza1, 3)
+        add_widget(pizza1, 5)
         var1.set(0)
         var2.set(0)
         var3.set(0)
@@ -165,7 +165,7 @@ def add_pizza():
         var6.set(0)
     elif pizza == 2:
         show(pizza)
-        add_widget(pizza2,4)
+        add_widget(pizza2,6)
         var1.set(0)
         var2.set(0)
         var3.set(0)
@@ -174,7 +174,7 @@ def add_pizza():
         var6.set(0)
     elif pizza == 3:
         show(pizza)
-        add_widget(pizza3,5)
+        add_widget(pizza3,7)
         var1.set(0)
         var2.set(0)
         var3.set(0)
@@ -183,7 +183,7 @@ def add_pizza():
         var6.set(0)
     elif pizza == 4:
         show(pizza)
-        add_widget(pizza4,6)
+        add_widget(pizza4,8)
         var1.set(0)
         var2.set(0)
         var3.set(0)
@@ -192,7 +192,7 @@ def add_pizza():
         var6.set(0)
     elif pizza == 5:
         show(pizza)
-        add_widget(pizza5,7)
+        add_widget(pizza5,9)
         var1.set(0)
         var2.set(0)
         var3.set(0)
