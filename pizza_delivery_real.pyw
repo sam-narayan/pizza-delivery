@@ -8,9 +8,9 @@ import tkinter.messagebox
 window = Tk()
 window.resizable(False,False)
 window.title("Pizza order form")
-window.config(bg = 'blue')
-top = Frame(window, bg='green')
-buttons = Frame(top, bg = 'yellow')
+window.config()
+top = Frame(window)
+buttons = Frame(top)
 detail_frame = Frame(top)
 address_frame = Frame(top)
 phone_frame = Frame(top)
@@ -21,7 +21,7 @@ label_text.set('pickup or delivery?!')
 name2_frame = Frame(top)
 master = Frame(top)
 total = IntVar(top, 5)
-orderframe = Frame(window, bg = 'black')
+orderframe = Frame(window,)
 pizza = 0
 
 def show(x):
@@ -100,7 +100,7 @@ def dcmd():
     forget(buttons)
     add_widget(detail_frame, 1)
     label_text.set('Name?')
-    add_widget(name_box)
+    add_widget(name_box,0)
     add_widget(confirmbutton,1)
     add_widget(cancel1,2)
     delvorpick.set('Delivery')
@@ -115,20 +115,26 @@ def confirm():
     forget(detail_frame)
     add_widget(address_frame)
     label_text.set('Address?')
-    add_widget(address_box)
+    add_widget(address_box,0)
     add_widget(address_confirm,1)
     add_widget(cancel3,2)
+    name_boxorder.set('name:{}'.format(name.get()))
+
 
 def acmd():
     forget(address_frame)
     add_widget(phone_frame)
     label_text.set('phone number?')
-    add_widget(number_box)
+    add_widget(number_box,0)
     add_widget(number_confirm,1)
     add_widget(cancel4,2)
+    addressorder.set('address:{}'.format(address.get()))
 
 def pcmd():
     forget(phone_frame)
+    add_widget(master)
+    label_text.set('order?')
+    phoneorder.set('phone number:{}'.format(number.get()))
 
 def pickcmd():
     forget(buttons)
@@ -143,7 +149,7 @@ def name2cmd():
     forget(name2_frame)
     add_widget(master)
     label_text.set('order?')
-    name_boxorder.set('name: {}'.format(name2.get()))
+    name_boxorder2.set('name: {}'.format(name2.get()))
 
 def add_pizza():
     global pizza
@@ -209,10 +215,19 @@ Label(orderframe, textvariable=delvorpick,).grid(row=0, pady=10, padx=10)
 name_boxorder = StringVar()
 Label(orderframe, textvariable=name_boxorder).grid(row=1, pady=10, padx=10)
 
+name_boxorder2 = StringVar()
+Label(orderframe, textvariable=name_boxorder2).grid(row=2, pady=10, padx=10)
+
+addressorder = StringVar()
+Label(orderframe, textvariable=addressorder).grid(row=3, pady=10, padx=10)
+
+phoneorder = StringVar()
+Label(orderframe, textvariable=phoneorder).grid(row=4, pady=10, padx=10)
+
 totaltext = StringVar()
 totallab = Label(orderframe, textvariable=totaltext)
 
-top_text = Label(top, textvariable = label_text, pady = 0, bg = 'red')
+top_text = Label(top, textvariable = label_text, pady = 0)
 top_text.grid(pady = 0, row = 0, column =0, sticky = 'n')
 
 delivery_button = Button(buttons, text='delivery', command=dcmd, cursor="hand2")
