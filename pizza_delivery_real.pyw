@@ -37,7 +37,7 @@ def show(x):
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 3:
         total.set(total.get() +8.50)
-        piiz = '\nmeat'
+        piiz = '\nmeat!!'
         onpizza = f'{onpizza}{piiz}'
     elif varpizza.get() == 4:
         total.set(total.get() +8.50)
@@ -150,6 +150,7 @@ def name2cmd():
     add_widget(master)
     label_text.set('order?')
     name_boxorder2.set('name: {}'.format(name2.get()))
+    total.set(total.get() +3.00)
 
 def add_pizza():
     global pizza
@@ -273,33 +274,33 @@ number_confirm= Button(phone_frame, text='confirm', command=pcmd, cursor="hand2"
 
 cancel4 = Button(phone_frame, text='cancel', command=master.quit, cursor="hand2")
 
-Label(master, text="pizzas:").grid(row=0, sticky=W)
+Label(master, text="pizzas :").grid(row=0, sticky=W)
 
 varpizza = IntVar()
 varpizza.set(1)
-radiocheese = Radiobutton(master, text='Cheese Supreme', variable=varpizza, value=1).grid(row=1, sticky=W)
-radioham = Radiobutton(master, text='ham and cheese', variable=varpizza, value=2).grid(row=2, sticky=W)
-radiomeat = Radiobutton(master, text='meat', variable=varpizza, value=3).grid(row=3, sticky=W)
-radionacho = Radiobutton(master, text='nacho chips and cheese', variable=varpizza, value=4).grid(row=4, sticky=W)
-radiosupermeat = Radiobutton(master, text='super meat lovers', variable=varpizza, value=5).grid(row=5, sticky=W)
-radiogarlic = Radiobutton(master, text='garlic and cheese', variable=varpizza, value=6).grid(row=6, sticky=W)
-radiopeperoni = Radiobutton(master, text='peperoni and cheese', variable=varpizza, value=7).grid(row=7, sticky=W)
-radioprawn = Radiobutton(master, text='prawn and chorizo', variable=varpizza, value=8).grid(row=8, sticky=W)
+radiocheese = Radiobutton(master, text='Cheese Supreme :$5', variable=varpizza, value=1).grid(row=1, sticky=W)
+radioham = Radiobutton(master, text='ham and cheese :$5', variable=varpizza, value=2).grid(row=2, sticky=W)
+radiomeat = Radiobutton(master, text='meat!! :$5', variable=varpizza, value=3).grid(row=3, sticky=W)
+radionacho = Radiobutton(master, text='nacho chips and cheese :$5', variable=varpizza, value=4).grid(row=4, sticky=W)
+radiosupermeat = Radiobutton(master, text='super meat lovers :$5', variable=varpizza, value=5).grid(row=5, sticky=W)
+radiogarlic = Radiobutton(master, text='garlic and cheese :$5', variable=varpizza, value=6).grid(row=6, sticky=W)
+radiopeperoni = Radiobutton(master, text='peperoni and cheese :$5', variable=varpizza, value=7).grid(row=7, sticky=W)
+radioprawn = Radiobutton(master, text='prawn and chorizo :$5', variable=varpizza, value=8).grid(row=8, sticky=W)
 
 
 Label(master, text="toppings:").grid(row=9, sticky=W)
 var1 = IntVar()
-Checkbutton(master, text="ham", variable=var1, onvalue=1, offvalue=0).grid(row=10, sticky=W)
+Checkbutton(master, text="extra ham :$0.50", variable=var1, onvalue=1, offvalue=0).grid(row=10, sticky=W)
 var2 = IntVar()
-Checkbutton(master, text="extra cheese", variable=var2, onvalue=1, offvalue=0).grid(row=11, sticky=W)
+Checkbutton(master, text="extra cheese :$0.50", variable=var2, onvalue=1, offvalue=0).grid(row=11, sticky=W)
 var3 = IntVar()
-Checkbutton(master, text="garlic sauce", variable=var3, onvalue=1, offvalue=0).grid(row=12, sticky=W)
+Checkbutton(master, text="garlic sauce :$0.50", variable=var3, onvalue=1, offvalue=0).grid(row=12, sticky=W)
 var4 = IntVar()
-Checkbutton(master, text="bbq sauce", variable=var4, onvalue=1, offvalue=0).grid(row=13, sticky=W)
+Checkbutton(master, text="bbq sauce :$0.50", variable=var4, onvalue=1, offvalue=0).grid(row=13, sticky=W)
 var5 = IntVar()
-Checkbutton(master, text="mystery meat", variable=var5, onvalue=1, offvalue=0).grid(row=14,sticky=W)
+Checkbutton(master, text="mystery meat :$0.50", variable=var5, onvalue=1, offvalue=0).grid(row=14,sticky=W)
 var6 = IntVar()
-Checkbutton(master, text="make gourmet", variable=var6, onvalue=1, offvalue=0).grid(row=15,sticky=W)
+Checkbutton(master, text="make gourmet :$5", variable=var6, onvalue=1, offvalue=0).grid(row=15,sticky=W)
 Button(master, text='add pizza',command=add_pizza, cursor="hand2").grid(row=16, sticky=W,pady=4)
 Button(master, text='finish order', command=order_fin, cursor="hand2").grid(row=17, sticky=W, pady=4)
 Button(master, text='cancel', command=master.quit, cursor="hand2").grid(row=18, sticky=W, pady=4)
