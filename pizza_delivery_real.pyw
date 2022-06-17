@@ -112,45 +112,56 @@ def forget(widget):
     widget.grid_forget()
 
 def confirm():
-    forget(detail_frame)
-    add_widget(address_frame)
-    label_text.set('Address?')
-    add_widget(address_box,0)
-    add_widget(address_confirm,1)
-    add_widget(cancel3,2)
-    name_boxorder.set('name:{}'.format(name.get()))
+    if name_box.get().isalpha() == True:
+        forget(detail_frame)
+        add_widget(address_frame)
+        label_text.set('Address?')
+        add_widget(address_box,0)
+        add_widget(address_confirm,1)
+        add_widget(cancel3,2)
+        name_boxorder.set('name:{}'.format(name.get()))
+    else:
+            tk.messagebox.showerror(title="pizza limit", message="please enter a first name")
 
 
 def acmd():
-    forget(address_frame)
-    add_widget(phone_frame)
-    label_text.set('phone number?')
-    add_widget(number_box,0)
-    add_widget(number_confirm,1)
-    add_widget(cancel4,2)
-    addressorder.set('address:{}'.format(address.get()))
+    if (len(address.get())):
+        forget(address_frame)
+        add_widget(phone_frame)
+        label_text.set('phone number?')
+        add_widget(number_box,0)
+        add_widget(number_confirm,1)
+        add_widget(cancel4,2)
+        addressorder.set('address:{}'.format(address.get()))
+    else:
+            tk.messagebox.showerror(title="pizza limit", message="please enter an address")
 
 def pcmd():
-    forget(phone_frame)
-    add_widget(master)
-    label_text.set('order?')
-    phoneorder.set('phone number:{}'.format(number.get()))
-
+    if number_box.get().isnumeric() == True:
+        forget(phone_frame)
+        add_widget(master)
+        label_text.set('order?')
+        phoneorder.set('phone number:{}'.format(number.get()))
+    else:
+            tk.messagebox.showerror(title="pizza limit", message="please enter a phone number")
 def pickcmd():
     forget(buttons)
     add_widget(name2_frame)
-    label_text.set('name?')
+    label_text.set('first name?')
     add_widget(name2box, 0, 1, 10, 0, 2)
     add_widget(name2confirm, 1, 1, 0, 1)
     add_widget(cancel2, 1, 2, 0, 1)
     delvorpick.set('Pick up')
 
 def name2cmd():
-    forget(name2_frame)
-    add_widget(master)
-    label_text.set('order?')
-    name_boxorder2.set('name: {}'.format(name2.get()))
-    total.set(total.get() +3.00)
+    if name2box.get().isalpha() == True:
+        forget(name2_frame)
+        add_widget(master)
+        label_text.set('order?')
+        name_boxorder2.set('name: {}'.format(name2.get()))
+        total.set(total.get() +3.00)
+    else:
+        tk.messagebox.showerror(title="pizza limit", message="please enter a first name")
 
 def add_pizza():
     global pizza
