@@ -216,7 +216,7 @@ def add_pizza():
 
 def order_fin():
     totaltext.set("Total:$ {}".format(total.get()))
-    add_widget(totallab, 8)
+    add_widget(totallab, 10)
 
 
 add_widget(orderframe, clmn=1, y=10, rw=1, rwspn =3)
