@@ -215,9 +215,11 @@ def add_pizza():
         tk.messagebox.showerror(title="pizza limit", message="pizza limit reached ( limit 5)")
 
 def order_fin():
-    totaltext.set("Total:$ {}".format(total.get()))
-    add_widget(totallab, 10)
-
+    if pizza >=1:
+        totaltext.set("Total:$ {}".format(total.get()))
+        add_widget(totallab, 10)
+    else:
+        tk.messagebox.showerror(title="pizza limit", message="please select a pizza")
 
 add_widget(orderframe, clmn=1, y=10, rw=1, rwspn =3)
 
